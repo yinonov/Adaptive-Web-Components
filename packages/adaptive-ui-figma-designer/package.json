@@ -1,0 +1,49 @@
+{
+    "name": "@adaptive-web/adaptive-ui-figma-designer",
+    "version": "0.0.1",
+    "description": "A designer for working with Adaptive UI within Figma",
+    "type": "module",
+    "private": true,
+    "license": "MIT",
+    "author": {
+        "name": "Adaptive Web Community",
+        "url": "https://github.com/adaptive-web-community"
+    },
+    "bugs": {
+        "url": "https://github.com/adaptive-web-community/adaptive-web-components/issues"
+    },
+    "homepage": "https://github.com/adaptive-web-community/adaptive-web-components#readme",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/adaptive-web-community/adaptive-web-components.git",
+        "directory": "packages/adaptive-ui-figma-designer"
+    },
+    "scripts": {
+        "build": "npm run build:ui && npm run build:figma -- --minify",
+        "build:figma": "esbuild src/figma/main.ts --bundle --outfile=dist/main.js",
+        "build:ui": "npx vite build --minify esbuild --emptyOutDir=false",
+        "compile": "npm run compile:figma && npm run compile:ui",
+        "compile:figma": "tsc --noEmit -p src/figma",
+        "compile:ui": "tsc --noEmit -p src/ui",
+        "clean": "rimraf dist",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "test": "npm run lint && npm run compile"
+    },
+    "dependencies": {
+        "@adaptive-web/adaptive-web-components": "^0.1.0",
+        "@microsoft/fast-colors": "^5.3.1"
+    },
+    "peerDependencies": {
+        "@microsoft/fast-element": "2.0.0-beta.21",
+        "@microsoft/fast-foundation": "3.0.0-alpha.25"
+    },
+    "devDependencies": {
+        "@figma/plugin-typings": "^1.58.0",
+        "esbuild": "^0.17.10",
+        "rimraf": "^3.0.2",
+        "typescript": "^4.7.0",
+        "vite": "^4.1.1",
+        "vite-plugin-svgo": "1.0.5"
+    }
+}
