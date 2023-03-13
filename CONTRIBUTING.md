@@ -28,7 +28,7 @@ git clone git@github.com:adaptive-web/adaptive-web-components.git
 From within the `adaptive-web-components` folder where you've cloned the repo, install all package dependencies and build all workspaces (local dependencies) with this command:
 
 ```bash
-npm install & npm run build
+npm install && npm run build
 ```
 
 After the initial install, you can re-build all workspaces in the future with:
